@@ -54,6 +54,7 @@ namespace Duplicate
         private void btnStart_Click(object sender, EventArgs e)
         {
             //Process of Duplicate file scanning takes place here
+            groups = 0; //initialize total groups before scan
             int cnt = 0;    //index for listViewScanned 
             List<bool> visited = new List<bool>(); //saves the info already grouped photos
             visited.Clear(); //remove garbage value
@@ -143,7 +144,7 @@ namespace Duplicate
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            operation = false;
+            //operation = false;
         }
     }
 }

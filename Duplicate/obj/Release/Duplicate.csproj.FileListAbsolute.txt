@@ -1,0 +1,14 @@
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Release\Duplicate.exe.config
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Release\Duplicate.exe
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Release\Duplicate.pdb
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.Form.resources
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.Properties.Resources.resources
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.csproj.GenerateResource.cache
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.csproj.CoreCompileInputs.cache
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.exe
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.pdb
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Release\Duplicate.exe.manifest
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Release\Duplicate.application
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.csprojAssemblyReference.cache
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.exe.manifest
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Release\Duplicate.application

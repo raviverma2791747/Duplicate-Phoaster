@@ -1,0 +1,17 @@
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Duplicate.exe.config
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Duplicate.exe
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Duplicate.pdb
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.csprojAssemblyReference.cache
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.Properties.Resources.resources
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.csproj.GenerateResource.cache
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.csproj.CoreCompileInputs.cache
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.exe
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.pdb
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.Form.resources
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Duplicate.exe.manifest
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Duplicate.application
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.exe.manifest
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.application
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\dje-NE\Duplicate.resources.dll
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.Form.dje-NE.resources
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\dje-NE\Duplicate.resources.dll
