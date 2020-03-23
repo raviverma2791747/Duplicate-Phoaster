@@ -8,8 +8,10 @@ namespace Duplicate
     public partial class Form : System.Windows.Forms.Form
     {
         List<string> listFiles = new List<string>();
-        int groups = 0; //Counts total groups of duplicate and single  photos
-        bool operation = true; // state of operation
+        //Total photos =  Total duplicate photos + Total groups
+        int total_groups = 0; //Counts total groups of duplicate and single  photos
+        int total_duplicates = 0; //Total duplicate photos;
+       // bool operation = true; // state of operation
 
         public Form()
         {
@@ -20,7 +22,7 @@ namespace Duplicate
         {
             listFiles.Clear();
             listView.Items.Clear();
-            groups = 0;
+            total_groups = 0;
             using(FolderBrowserDialog fbd = new FolderBrowserDialog() {Description = "Select Your Path."})
             {
                 if(fbd.ShowDialog() == DialogResult.OK)
@@ -54,7 +56,8 @@ namespace Duplicate
         private void btnStart_Click(object sender, EventArgs e)
         {
             //Process of Duplicate file scanning takes place here
-            groups = 0; //initialize total groups before scan
+            total_groups = 0; //initialize total groups before scan 
+            total_duplicates = 0; //Total duplicate photos
             int cnt = 0;    //index for listViewScanned 
             List<bool> visited = new List<bool>(); //saves the info already grouped photos
             visited.Clear(); //remove garbage value
@@ -80,27 +83,31 @@ namespace Duplicate
                             
                            if (!visited[i])
                             {
-                                cnt += 1;  //updating index of listViewScanned.Items
+                               
                                 imageListScanned.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(listFiles[i]));
                                 listViewScanned.Items.Add(fi.Name, cnt);
                                 visited[i] = true;
-                                 groups += 1;   //updating groups
+                                total_groups += 1;   //updating groups
+                                cnt += 1;  //updating index of listViewScanned.Items
                             }
                           
                             if (!visited[j])
                             {
-                                cnt += 1;  //updating index of listViewScanned.Items
+                                
                                 imageListScanned.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(listFiles[j]));
                                 listViewScanned.Items.Add(fi2.Name,cnt);
                                 listViewScanned.Items[cnt].Checked = true;
                                 visited[j] = true;
+                                cnt += 1;  //updating index of listViewScanned.Items
                             }
                         }
                     }
                 }
                 progressBar.Value += 1;
-                textBoxGroup.Text = Convert.ToString(groups); //Displaying total groups identified
-                if (groups == listFiles.Count)
+                textBoxGroup.Text = Convert.ToString(total_groups); //Displaying total groups identified
+                total_duplicates = listFiles.Count - total_groups; //Calculate total duplicate photos
+                textBoxDuplicate.Text = Convert.ToString(total_duplicates); //Display Total Duplicate photos
+                if (total_groups == listFiles.Count)
                 {
                     textBoxStatus.Text = "No duplicates found!";
                 }
@@ -116,7 +123,7 @@ namespace Duplicate
             progressBar.Minimum = 0;        //initialize progresbar minimum value
             progressBar.Maximum = listFiles.Count;    //initialize progress bar maximum value
             progressBar.Value = 0;   //starting value of progress bar
-            if (groups > listFiles.Count)
+            if (total_groups < listFiles.Count)
             {
                 for (int i = 0; i < listFiles.Count; i++)
                 {

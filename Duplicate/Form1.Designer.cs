@@ -53,6 +53,8 @@
             this.totalFiles = new System.Windows.Forms.Label();
             this.textTotalFiles = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxDuplicate = new System.Windows.Forms.TextBox();
+            this.labelDuplicate = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,6 +106,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.labelDuplicate);
+            this.groupBox3.Controls.Add(this.textBoxDuplicate);
             this.groupBox3.Controls.Add(this.labelStartStop);
             this.groupBox3.Controls.Add(this.btnStop);
             this.groupBox3.Controls.Add(this.textBoxStatus);
@@ -157,7 +161,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(128, 53);
+            this.btnDelete.Location = new System.Drawing.Point(180, 87);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(116, 25);
             this.btnDelete.TabIndex = 3;
@@ -286,6 +290,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File";
             // 
+            // textBoxDuplicate
+            // 
+            this.textBoxDuplicate.Location = new System.Drawing.Point(248, 56);
+            this.textBoxDuplicate.Name = "textBoxDuplicate";
+            this.textBoxDuplicate.ReadOnly = true;
+            this.textBoxDuplicate.Size = new System.Drawing.Size(33, 20);
+            this.textBoxDuplicate.TabIndex = 8;
+            this.textBoxDuplicate.Text = "0";
+            this.textBoxDuplicate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelDuplicate
+            // 
+            this.labelDuplicate.AutoSize = true;
+            this.labelDuplicate.Location = new System.Drawing.Point(121, 59);
+            this.labelDuplicate.Name = "labelDuplicate";
+            this.labelDuplicate.Size = new System.Drawing.Size(121, 13);
+            this.labelDuplicate.TabIndex = 9;
+            this.labelDuplicate.Text = "Total Duplicate Photos :";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,6 +361,8 @@
         private System.Windows.Forms.Label totalFiles;
         private System.Windows.Forms.TextBox textTotalFiles;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label labelDuplicate;
+        private System.Windows.Forms.TextBox textBoxDuplicate;
     }
 }
 
