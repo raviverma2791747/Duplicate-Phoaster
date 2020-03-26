@@ -14,7 +14,6 @@ namespace Duplicate
         //Total photos =  Total duplicate photos + Total groups
         int total_groups = 0; //Counts total groups of duplicate and single  photos
         int total_duplicates = 0; //Total duplicate photos;
-                                  // bool operation = true; // state of operation
 
         public Form()
         {
@@ -62,7 +61,7 @@ namespace Duplicate
             progressBar.Minimum = 0;        //initialize progresbar minimum value
             progressBar.Maximum = listFiles.Count;    //initialize progress bar maximum value
             progressBar.Value = 0;                  //starting value of progress bar
-            backgroundWorkerStatus.RunWorkerAsync();
+            backgroundWorkerScan.RunWorkerAsync();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -98,20 +97,20 @@ namespace Duplicate
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            backgroundWorkerStatus.CancelAsync();
+            backgroundWorkerScan.CancelAsync();
         }
 
-        private void backgroundWorkerStatus_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void backgroundWorkerScan_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             //Process of Duplicate file scanning takes place here
             //string currStatus;
-            System.Windows.Forms.ListView scan = new System.Windows.Forms.ListView();
-            scan.CheckBoxes = true;
-            ImageList scanImage = new ImageList();
-            scan.LargeImageList = scanImage;
+            System.Windows.Forms.ListView scan = new System.Windows.Forms.ListView
+            {
+                CheckBoxes = true
+            };
             total_groups = 0; //initialize total groups before scan 
             total_duplicates = 0; //Total duplicate photos
-            int cnt = 0;    //index for listViewScanned 
+            int scan_index = 0;    //index for listViewScanned 
             List<bool> visited = new List<bool>(); //saves the info already grouped photos
             visited.Clear(); //remove garbage value
             //DateTime startTime = DateTime.Now;// Intial time when scan started
@@ -122,12 +121,12 @@ namespace Duplicate
             }
             for (int i = 0; i < listFiles.Count; i++)
             {
-                if (backgroundWorkerStatus.CancellationPending == true)
+                if (backgroundWorkerScan.CancellationPending == true)
                 {
                     e.Cancel = true;
                     return;
                 }
-                backgroundWorkerStatus.ReportProgress(i);
+                backgroundWorkerScan.ReportProgress(i);
                 //progressBar.Value = i;         //updating  progressbar value with progress in task
                 //currentTime = DateTime.Now;
                 //textBoxStatus.Text = Convert.ToString((currentTime.Minute - startTime.Minute )/(i+1)* (listFiles.Count - i));
@@ -145,20 +144,21 @@ namespace Duplicate
                                 ShellFile shellFile = ShellFile.FromFilePath(listFiles[i]);
                                 Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
                                 imageListScanned.Images.Add(shellThumb);
-                                scan.Items.Add(fi.Name, cnt);
+                                scan.Items.Add(fi.Name, scan_index);
                                 visited[i] = true;
                                 total_groups += 1;   //updating groups
-                                cnt += 1;  //updating index of listViewScanned.Items
+                                scan_index += 1;  //updating index of listViewScanned.Items
                             }
 
                             if (!visited[j])
                             {
-
-                                imageListScanned.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(listFiles[j]));
-                                scan.Items.Add(fi2.Name, cnt);
-                                scan.Items[cnt].Checked = true;
+                                ShellFile shellFile = ShellFile.FromFilePath(listFiles[j]);
+                                Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
+                                imageListScanned.Images.Add(shellThumb);
+                                scan.Items.Add(fi2.Name, scan_index);
+                                scan.Items[scan_index].Checked = true;
                                 visited[j] = true;
-                                cnt += 1;  //updating index of listViewScanned.Items
+                                scan_index += 1;  //updating index of listViewScanned.Items
                             }
                         }
                     }
@@ -180,17 +180,14 @@ namespace Duplicate
             }
         }
 
-        private void backgroundWorkerStatus_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        private void backgroundWorkerScan_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
             textBoxStatus.Text = Convert.ToString(progressBar.Value) + " files scanned";
-
-
         }
 
-        private void backgroundWorkerStatus_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        private void backgroundWorkerScan_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-
             if (e.Cancelled == false)
             {
                 progressBar.Value += 1;
@@ -199,12 +196,12 @@ namespace Duplicate
                 {
                     listViewScanned.Items.Add((ListViewItem)result.Items[i].Clone());
                 }
-                MessageBox.Show("Done!");
+               // MessageBox.Show("Done!");
             }
             else
             {
                 progressBar.Value = listFiles.Count;
-                MessageBox.Show("Scan Successfully Cancelled!");
+               // MessageBox.Show("Scan Successfully Cancelled!");
             }
         }
     }

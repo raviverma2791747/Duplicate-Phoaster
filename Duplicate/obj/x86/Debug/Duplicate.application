@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Duplicate.exe.manifest" size="4592">
+    <dependentAssembly dependencyType="install" codebase="Duplicate.exe.manifest" size="6659">
       <assemblyIdentity name="Duplicate.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UI66VZal+LMhmILmgJBqB9KHpLCK8GpDeJn9lyWBTfA=</dsig:DigestValue>
+        <dsig:DigestValue>Ust5p+8u+TJzmdlbsgTpvSmfWbssQeHSzMXpZ3iDZKI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

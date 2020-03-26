@@ -36,6 +36,8 @@
             this.imageListScanned = new System.Windows.Forms.ImageList(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelDuplicate = new System.Windows.Forms.Label();
+            this.textBoxDuplicate = new System.Windows.Forms.TextBox();
             this.labelStartStop = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
@@ -53,8 +55,7 @@
             this.totalFiles = new System.Windows.Forms.Label();
             this.textTotalFiles = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxDuplicate = new System.Windows.Forms.TextBox();
-            this.labelDuplicate = new System.Windows.Forms.Label();
+            this.backgroundWorkerScan = new System.ComponentModel.BackgroundWorker();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -122,6 +123,25 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Actions";
+            // 
+            // labelDuplicate
+            // 
+            this.labelDuplicate.AutoSize = true;
+            this.labelDuplicate.Location = new System.Drawing.Point(121, 59);
+            this.labelDuplicate.Name = "labelDuplicate";
+            this.labelDuplicate.Size = new System.Drawing.Size(121, 13);
+            this.labelDuplicate.TabIndex = 9;
+            this.labelDuplicate.Text = "Total Duplicate Photos :";
+            // 
+            // textBoxDuplicate
+            // 
+            this.textBoxDuplicate.Location = new System.Drawing.Point(248, 56);
+            this.textBoxDuplicate.Name = "textBoxDuplicate";
+            this.textBoxDuplicate.ReadOnly = true;
+            this.textBoxDuplicate.Size = new System.Drawing.Size(33, 20);
+            this.textBoxDuplicate.TabIndex = 8;
+            this.textBoxDuplicate.Text = "0";
+            this.textBoxDuplicate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelStartStop
             // 
@@ -290,24 +310,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File";
             // 
-            // textBoxDuplicate
+            // backgroundWorkerScan
             // 
-            this.textBoxDuplicate.Location = new System.Drawing.Point(248, 56);
-            this.textBoxDuplicate.Name = "textBoxDuplicate";
-            this.textBoxDuplicate.ReadOnly = true;
-            this.textBoxDuplicate.Size = new System.Drawing.Size(33, 20);
-            this.textBoxDuplicate.TabIndex = 8;
-            this.textBoxDuplicate.Text = "0";
-            this.textBoxDuplicate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // labelDuplicate
-            // 
-            this.labelDuplicate.AutoSize = true;
-            this.labelDuplicate.Location = new System.Drawing.Point(121, 59);
-            this.labelDuplicate.Name = "labelDuplicate";
-            this.labelDuplicate.Size = new System.Drawing.Size(121, 13);
-            this.labelDuplicate.TabIndex = 9;
-            this.labelDuplicate.Text = "Total Duplicate Photos :";
+            this.backgroundWorkerScan.WorkerReportsProgress = true;
+            this.backgroundWorkerScan.WorkerSupportsCancellation = true;
+            this.backgroundWorkerScan.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerScan_DoWork);
+            this.backgroundWorkerScan.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerScan_ProgressChanged);
+            this.backgroundWorkerScan.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerScan_RunWorkerCompleted);
             // 
             // Form
             // 
@@ -363,6 +372,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelDuplicate;
         private System.Windows.Forms.TextBox textBoxDuplicate;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerScan;
     }
 }
 
