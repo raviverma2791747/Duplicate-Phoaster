@@ -1,5 +1,8 @@
 # Duplicate-Phoaster
 
+Development Environment Visual Studio 2019<br>
+<br>
+
 Add Nuget Packages windowsAPICodePack-Shell and windowsAPICodePack-Core<br>
 For this code to work <br>
 ```C#
