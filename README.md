@@ -6,3 +6,7 @@ For this code to work <br>
 ShellFile shellFile = ShellFile.FromFilePath(listFiles[i]);
 Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
 ```
+```C#
+ShellFile shellFile = ShellFile.FromFilePath(listFiles[j]);
+Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
+```
