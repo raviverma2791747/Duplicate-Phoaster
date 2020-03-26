@@ -1,5 +1,7 @@
 # Duplicate-Phoaster
 
+Current Version : 1.5<br>
+
 Development Environment Visual Studio 2019<br>
 
 Add Nuget Packages windowsAPICodePack-Shell and windowsAPICodePack-Core<br>
