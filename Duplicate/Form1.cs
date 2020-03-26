@@ -10,7 +10,7 @@ namespace Duplicate
 {
     public partial class Form : System.Windows.Forms.Form
     {
-        List<string> listFiles = new List<string>();
+        List<string> listFiles = new List<string>(); //Stores complete list of files to be scanned 
         //Total photos =  Total duplicate photos + Total groups
         int total_groups = 0; //Counts total groups of duplicate and single  photos
         int total_duplicates = 0; //Total duplicate photos;
@@ -22,9 +22,9 @@ namespace Duplicate
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            listFiles.Clear();
-            listView.Items.Clear();
-            total_groups = 0;
+            listFiles.Clear();              //clear garbage value
+            listView.Items.Clear();         
+            total_groups = 0;                   
             using (FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "Select Your Path." })
             {
                 if (fbd.ShowDialog() == DialogResult.OK)
@@ -191,7 +191,7 @@ namespace Duplicate
             if (e.Cancelled == false)
             {
                 progressBar.Value += 1;
-                System.Windows.Forms.ListView result = (System.Windows.Forms.ListView)e.Result;
+                ListView result = (ListView)e.Result;
                 for (int i = 0; i < listFiles.Count; i++)
                 {
                     listViewScanned.Items.Add((ListViewItem)result.Items[i].Clone());
