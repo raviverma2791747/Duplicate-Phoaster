@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.WindowsAPICodePack.Shell;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Shell;
 
 
 namespace Duplicate
@@ -18,13 +18,17 @@ namespace Duplicate
         public Form()
         {
             InitializeComponent();
+            btnStart.Enabled = false;
+            btnStop.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
+            btnStart.Enabled = false;
             listFiles.Clear();              //clear garbage value
-            listView.Items.Clear();         
-            total_groups = 0;                   
+            listView.Items.Clear();
+            total_groups = 0;
             using (FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "Select Your Path." })
             {
                 if (fbd.ShowDialog() == DialogResult.OK)
@@ -34,7 +38,7 @@ namespace Duplicate
                     foreach (string item in System.IO.Directory.GetFiles(fbd.SelectedPath))
                     {
                         extn = Path.GetExtension(item);
-                        if (extn == ".PNG" || extn == ".JPEG" || extn == ".JPG" || extn == ".BMP")
+                        if (extn == ".PNG" || extn == ".JPEG" || extn == ".JPG" || extn == ".BMP" || extn == ".ICO" || extn == ".GIF")
                         {
                             imageList.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
                             System.IO.FileInfo fi = new System.IO.FileInfo(item);
@@ -45,10 +49,13 @@ namespace Duplicate
                     textTotalFiles.Text = Convert.ToString(imageList.Images.Count);
                 }
             }
+            btnStart.Enabled = true;
+            btnOpen.Enabled = false;
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //If user clicks the image in the program it opens the image
             if (listView.FocusedItem != null)
             {
                 System.Diagnostics.Process.Start(listFiles[listView.FocusedItem.Index]);
@@ -57,15 +64,28 @@ namespace Duplicate
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            listViewScanned.Items.Clear();  //Clear garbage value if any
-            progressBar.Minimum = 0;        //initialize progresbar minimum value
-            progressBar.Maximum = listFiles.Count;    //initialize progress bar maximum value
-            progressBar.Value = 0;                  //starting value of progress bar
-            backgroundWorkerScan.RunWorkerAsync();
+            if (listFiles.Count == 0)
+            {
+                textBoxStatus.Text = "No files to Scan";
+                btnStart.Enabled = false;
+                btnOpen.Enabled = true;
+            }
+            else
+            {
+                listViewScanned.Items.Clear();  //Clear garbage value if any
+                progressBar.Minimum = 0;        //initialize progresbar minimum value
+                progressBar.Maximum = listFiles.Count;    //initialize progress bar maximum value
+                progressBar.Value = 0;                  //starting value of progress bar
+                progressBar.ForeColor = Color.Blue;
+                backgroundWorkerScan.RunWorkerAsync();
+                btnStart.Enabled = false;
+                btnStop.Enabled = true;
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            btnStart.Enabled = false;
             progressBar.Minimum = 0;        //initialize progresbar minimum value
             progressBar.Maximum = listFiles.Count;    //initialize progress bar maximum value
             progressBar.Value = 0;   //starting value of progress bar
@@ -98,6 +118,10 @@ namespace Duplicate
         private void btnStop_Click(object sender, EventArgs e)
         {
             backgroundWorkerScan.CancelAsync();
+            btnDelete.Enabled = false;
+            btnStart.Enabled = true;
+            btnStop.Enabled = false;
+            btnOpen.Enabled = true;
         }
 
         private void backgroundWorkerScan_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -196,12 +220,16 @@ namespace Duplicate
                 {
                     listViewScanned.Items.Add((ListViewItem)result.Items[i].Clone());
                 }
-               // MessageBox.Show("Done!");
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+                btnDelete.Enabled = true;
+                btnOpen.Enabled = true;
+                // MessageBox.Show("Done!");
             }
             else
             {
                 progressBar.Value = listFiles.Count;
-               // MessageBox.Show("Scan Successfully Cancelled!");
+                // MessageBox.Show("Scan Successfully Cancelled!");
             }
         }
     }

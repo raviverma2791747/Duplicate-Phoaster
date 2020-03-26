@@ -51,11 +51,11 @@
             this.labelPrj = new System.Windows.Forms.Label();
             this.btnOpen = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
-            this.txtPath = new System.Windows.Forms.TextBox();
-            this.totalFiles = new System.Windows.Forms.Label();
-            this.textTotalFiles = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.backgroundWorkerScan = new System.ComponentModel.BackgroundWorker();
+            this.txtPath = new System.Windows.Forms.TextBox();
+            this.textTotalFiles = new System.Windows.Forms.TextBox();
+            this.totalFiles = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -69,9 +69,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.listViewScanned);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox2.Location = new System.Drawing.Point(325, 26);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(540, 409);
@@ -154,6 +152,7 @@
             // 
             // btnStop
             // 
+            this.btnStop.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnStop.Location = new System.Drawing.Point(180, 19);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(51, 24);
@@ -181,6 +180,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDelete.Location = new System.Drawing.Point(180, 87);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(116, 25);
@@ -210,6 +210,7 @@
             // 
             // btnStart
             // 
+            this.btnStart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnStart.Location = new System.Drawing.Point(128, 19);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(46, 25);
@@ -225,7 +226,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(66, 13);
             this.labelVersion.TabIndex = 4;
-            this.labelVersion.Text = "Version : 1.0";
+            this.labelVersion.Text = "Version : 1.5";
             // 
             // linkLabelPrj
             // 
@@ -249,6 +250,7 @@
             // 
             // btnOpen
             // 
+            this.btnOpen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnOpen.Location = new System.Drawing.Point(6, 19);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
@@ -268,32 +270,6 @@
             this.listView.TabIndex = 1;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
-            // 
-            // txtPath
-            // 
-            this.txtPath.Location = new System.Drawing.Point(87, 22);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(209, 20);
-            this.txtPath.TabIndex = 2;
-            // 
-            // totalFiles
-            // 
-            this.totalFiles.AutoSize = true;
-            this.totalFiles.Location = new System.Drawing.Point(17, 241);
-            this.totalFiles.Name = "totalFiles";
-            this.totalFiles.Size = new System.Drawing.Size(61, 13);
-            this.totalFiles.TabIndex = 3;
-            this.totalFiles.Text = "Total Files :";
-            // 
-            // textTotalFiles
-            // 
-            this.textTotalFiles.Location = new System.Drawing.Point(84, 238);
-            this.textTotalFiles.Name = "textTotalFiles";
-            this.textTotalFiles.ReadOnly = true;
-            this.textTotalFiles.Size = new System.Drawing.Size(33, 20);
-            this.textTotalFiles.TabIndex = 4;
-            this.textTotalFiles.Text = "0";
-            this.textTotalFiles.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox1
             // 
@@ -317,6 +293,32 @@
             this.backgroundWorkerScan.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerScan_DoWork);
             this.backgroundWorkerScan.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerScan_ProgressChanged);
             this.backgroundWorkerScan.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerScan_RunWorkerCompleted);
+            // 
+            // txtPath
+            // 
+            this.txtPath.Location = new System.Drawing.Point(87, 22);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(209, 20);
+            this.txtPath.TabIndex = 2;
+            // 
+            // textTotalFiles
+            // 
+            this.textTotalFiles.Location = new System.Drawing.Point(84, 238);
+            this.textTotalFiles.Name = "textTotalFiles";
+            this.textTotalFiles.ReadOnly = true;
+            this.textTotalFiles.Size = new System.Drawing.Size(33, 20);
+            this.textTotalFiles.TabIndex = 4;
+            this.textTotalFiles.Text = "0";
+            this.textTotalFiles.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // totalFiles
+            // 
+            this.totalFiles.AutoSize = true;
+            this.totalFiles.Location = new System.Drawing.Point(17, 241);
+            this.totalFiles.Name = "totalFiles";
+            this.totalFiles.Size = new System.Drawing.Size(61, 13);
+            this.totalFiles.TabIndex = 3;
+            this.totalFiles.Text = "Total Files :";
             // 
             // Form
             // 
@@ -366,13 +368,13 @@
         private System.Windows.Forms.Label labelStartStop;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.TextBox txtPath;
-        private System.Windows.Forms.Label totalFiles;
-        private System.Windows.Forms.TextBox textTotalFiles;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelDuplicate;
         private System.Windows.Forms.TextBox textBoxDuplicate;
         private System.ComponentModel.BackgroundWorker backgroundWorkerScan;
+        private System.Windows.Forms.TextBox textTotalFiles;
+        private System.Windows.Forms.Label totalFiles;
+        private System.Windows.Forms.TextBox txtPath;
     }
 }
 
