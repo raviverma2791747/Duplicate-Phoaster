@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Duplicate.exe" size="39392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Duplicate.exe" size="82912">
       <assemblyIdentity name="Duplicate" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HNQ0/jX/mQEtOyDTSNI0a7MxmWDU9YntAuQLea+BWHI=</dsig:DigestValue>
+        <dsig:DigestValue>kw8Hrnyl+ZKwRpWM1ejaZxh/tN7bkng5hfHj/wk6iSI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9Ek+MxXOPQ2q0R5iy9jYeqxi9jyczTG3rpZNRVk7lPA=</dsig:DigestValue>
+        <dsig:DigestValue>XW/ym8fSyFjQ6U3xGsb8SbKYAGPgm5veXp2F/77Leik=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

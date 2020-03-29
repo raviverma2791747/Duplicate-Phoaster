@@ -15,3 +15,12 @@ C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.application
 C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\dje-NE\Duplicate.resources.dll
 C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.Form.dje-NE.resources
 C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\dje-NE\Duplicate.resources.dll
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\Debug\Duplicate.csproj.CopyComplete

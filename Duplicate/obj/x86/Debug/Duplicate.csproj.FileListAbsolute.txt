@@ -24,3 +24,4 @@ C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\x86\Debug\Microsoft.WindowsA
 C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\x86\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 C:\Users\raviv\source\repos\Duplicate\Duplicate\bin\x86\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
 C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\x86\Debug\Duplicate.csproj.CopyComplete
+C:\Users\raviv\source\repos\Duplicate\Duplicate\obj\x86\Debug\About.Form2.resources

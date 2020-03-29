@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
+using About;
 
 namespace Duplicate
 {
@@ -29,19 +29,20 @@ namespace Duplicate
             listFiles.Clear();              //clear garbage value
             listView.Items.Clear();
             total_groups = 0;
+            textBoxStatus.Text = "Loading Files";
             using (FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "Select Your Path." })
             {
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     string extn;
                     txtPath.Text = fbd.SelectedPath;
-                    foreach (string item in System.IO.Directory.GetFiles(fbd.SelectedPath))
+                    foreach (string item in Directory.GetFiles(fbd.SelectedPath))
                     {
                         extn = Path.GetExtension(item);
                         if (extn == ".PNG" || extn == ".JPEG" || extn == ".JPG" || extn == ".BMP" || extn == ".ICO" || extn == ".GIF")
                         {
-                            imageList.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
-                            System.IO.FileInfo fi = new System.IO.FileInfo(item);
+                            imageList.Images.Add(Icon.ExtractAssociatedIcon(item));
+                            FileInfo fi = new FileInfo(item);
                             listFiles.Add(fi.FullName);
                             listView.Items.Add(fi.Name, imageList.Images.Count - 1);
                         }
@@ -143,6 +144,10 @@ namespace Duplicate
             {
                 visited.Add(false);
             }
+            FileInfo fi; //= new FileInfo();
+            FileInfo fi2; //= new FileInfo();
+            ShellFile shellFile; //= ShellFile.FromFilePath(listFiles[i]);
+            Bitmap shellThumb;//= shellFile.Thumbnail.ExtraLargeBitmap;
             for (int i = 0; i < listFiles.Count; i++)
             {
                 if (backgroundWorkerScan.CancellationPending == true)
@@ -156,17 +161,17 @@ namespace Duplicate
                 //textBoxStatus.Text = Convert.ToString((currentTime.Minute - startTime.Minute )/(i+1)* (listFiles.Count - i));
                 if (visited[i] == false)  //checking if already visited 
                 {
-                    System.IO.FileInfo fi = new System.IO.FileInfo(listFiles[i]);
+                    fi = new FileInfo(listFiles[i]);
                     for (int j = 0; j < listFiles.Count; j++)
                     {
-                        System.IO.FileInfo fi2 = new System.IO.FileInfo(listFiles[j]);
+                         fi2 = new FileInfo(listFiles[j]);
                         if (fi.Length == fi2.Length && fi.Extension == fi2.Extension)
                         {
 
                             if (!visited[i])
                             {
-                                ShellFile shellFile = ShellFile.FromFilePath(listFiles[i]);
-                                Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
+                                shellFile = ShellFile.FromFilePath(listFiles[i]);
+                                shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
                                 imageListScanned.Images.Add(shellThumb);
                                 scan.Items.Add(fi.Name, scan_index);
                                 visited[i] = true;
@@ -176,8 +181,8 @@ namespace Duplicate
 
                             if (!visited[j])
                             {
-                                ShellFile shellFile = ShellFile.FromFilePath(listFiles[j]);
-                                Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
+                                shellFile = ShellFile.FromFilePath(listFiles[j]);
+                                shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
                                 imageListScanned.Images.Add(shellThumb);
                                 scan.Items.Add(fi2.Name, scan_index);
                                 scan.Items[scan_index].Checked = true;
@@ -187,20 +192,20 @@ namespace Duplicate
                         }
                     }
                 }
-                e.Result = scan;
                 // textBoxGroup.Text = Convert.ToString(total_groups); //Displaying total groups identified
                 textBoxGroup.Invoke((Action)(() => textBoxGroup.Text = Convert.ToString(total_groups)));
-                total_duplicates = listFiles.Count - total_groups; //Calculate total duplicate photos
+               // total_duplicates = listFiles.Count - total_groups; //Calculate total duplicate photos
                 // textBoxDuplicate.Text = Convert.ToString(total_duplicates); //Display Total Duplicate photos
                 textBoxDuplicate.Invoke((Action)(() => textBoxDuplicate.Text = Convert.ToString(total_duplicates)));
-                if (total_groups == listFiles.Count)
-                {
-                    textBoxStatus.Invoke((Action)(() => textBoxStatus.Text = "No duplicates found!"));
-                }
-                else
-                {
-                    textBoxStatus.Invoke((Action)(() => textBoxStatus.Text = "Duplicates found!"));
-                }
+            }
+            e.Result = scan;
+            if (total_groups == listFiles.Count)
+            {
+                textBoxStatus.Invoke((Action)(() => textBoxStatus.Text = "No duplicates found!"));
+            }
+            else
+            {
+                textBoxStatus.Invoke((Action)(() => textBoxStatus.Text = "Duplicates found!"));
             }
         }
 
@@ -232,5 +237,13 @@ namespace Duplicate
                 // MessageBox.Show("Scan Successfully Cancelled!");
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.ShowDialog();
+        }
+
+        
     }
 }
