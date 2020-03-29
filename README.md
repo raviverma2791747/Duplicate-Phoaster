@@ -1,4 +1,6 @@
 # Duplicate-Phoaster
+![](https://github.com/raviverma2791747/Duplicate-Phoaster/blob/master/Duplicate/Icon.ico)</br>
+Current Version : 1.5<br>
 
 Development Environment Visual Studio 2019<br>
 
