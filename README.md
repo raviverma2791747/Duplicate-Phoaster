@@ -14,3 +14,5 @@ Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
 ShellFile shellFile = ShellFile.FromFilePath(listFiles[j]);
 Bitmap shellThumb = shellFile.Thumbnail.ExtraLargeBitmap;
 ```
+
+![](https://github.com/raviverma2791747/Duplicate-Phoaster/blob/master/Image/working%201.75.png)
