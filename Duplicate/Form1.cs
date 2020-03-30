@@ -194,7 +194,7 @@ namespace Duplicate
                 }
                 // textBoxGroup.Text = Convert.ToString(total_groups); //Displaying total groups identified
                 textBoxGroup.Invoke((Action)(() => textBoxGroup.Text = Convert.ToString(total_groups)));
-               // total_duplicates = listFiles.Count - total_groups; //Calculate total duplicate photos
+                total_duplicates = listFiles.Count - total_groups; //Calculate total duplicate photos
                 // textBoxDuplicate.Text = Convert.ToString(total_duplicates); //Display Total Duplicate photos
                 textBoxDuplicate.Invoke((Action)(() => textBoxDuplicate.Text = Convert.ToString(total_duplicates)));
             }
